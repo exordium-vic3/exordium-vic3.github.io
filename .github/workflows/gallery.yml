@@ -24,4 +24,4 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             BRANCH: gh-pages
             FOLDER: build_output
-            CLEAN: true
+            CLEAN: false
