@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, user-scalable=no" />
+      <title>Flags of Exordium - Portuguese Colonies</title>
+      <link rel="stylesheet" href="public/lightgallery/css/lightgallery.css" />
+      <link rel="stylesheet" href="public/lightslider/css/lightslider.min.css" />
+      <link rel="stylesheet" href="public/videojs/video-js.min.css" />
+      <link rel="stylesheet" href="public/lightgallery/css/lg-exif.min.css" />
+      <link rel="stylesheet" href="public/core.css" />
+      <link rel="stylesheet" href="public/theme.css" />
+      <link rel="stylesheet" href="public/justifiedgallery/justifiedGallery.min.css" />
+  </head>
+
+  <body>
+    
+    <div id="container">
+    
+      <!--
+        Gallery title
+      -->
+      <header>
+        <h1><a href="index.html">Flags of Exordium</a></h1>
+      </header>
+    
+      <!--
+        Breadcrumbs of parent albums
+      -->
+      <nav class="breadcrumbs">
+    <a class="breadcrumb-item" href="index.html">Home</a>&nbsp;/&nbsp;<a class="breadcrumb-item" href="Portuguese-Colonies.html">Portuguese Colonies</a>
+      </nav>
+    
+    
+      <!--
+        Nested albums, if any
+      -->
+      <div id="albums" class="justified-gallery">
+      </div>
+    
+      <!--
+        All photos and videos
+      -->
+      <ul id="media" class="clearfix justified-gallery">
+          
+          <div class="albumList"
+              data-sub-html=""
+              data-download-url="media/original/Portuguese%20Colonies/Cape%20Verde.png"data-src="media/large/Portuguese%20Colonies/Cape%20Verde.png"data-exthumbimage="media/thumbs/Portuguese%20Colonies/Cape%20Verde.png"data-filename="Cape Verde.png"><a href="media/large/Portuguese%20Colonies/Cape%20Verde.png"><img
+                      src="media/small/Portuguese%20Colonies/Cape%20Verde.png"
+                      width="450"
+                      height="300"alt="Cape Verde.png"/>
+              </a>
+          
+          </div>      
+          <div class="albumList"
+              data-sub-html=""
+              data-download-url="media/original/Portuguese%20Colonies/East%20Timor.png"data-src="media/large/Portuguese%20Colonies/East%20Timor.png"data-exthumbimage="media/thumbs/Portuguese%20Colonies/East%20Timor.png"data-filename="East Timor.png"><a href="media/large/Portuguese%20Colonies/East%20Timor.png"><img
+                      src="media/small/Portuguese%20Colonies/East%20Timor.png"
+                      width="450"
+                      height="300"alt="East Timor.png"/>
+              </a>
+          
+          </div>      
+          <div class="albumList"
+              data-sub-html=""
+              data-download-url="media/original/Portuguese%20Colonies/Goa.png"data-src="media/large/Portuguese%20Colonies/Goa.png"data-exthumbimage="media/thumbs/Portuguese%20Colonies/Goa.png"data-filename="Goa.png"><a href="media/large/Portuguese%20Colonies/Goa.png"><img
+                      src="media/small/Portuguese%20Colonies/Goa.png"
+                      width="450"
+                      height="300"alt="Goa.png"/>
+              </a>
+          
+          </div>      
+          <div class="albumList"
+              data-sub-html=""
+              data-download-url="media/original/Portuguese%20Colonies/S%C3%A3o%20Tom%C3%A9%20and%20Pr%C3%ADncipe.png"data-src="media/large/Portuguese%20Colonies/S%C3%A3o%20Tom%C3%A9%20and%20Pr%C3%ADncipe.png"data-exthumbimage="media/thumbs/Portuguese%20Colonies/S%C3%A3o%20Tom%C3%A9%20and%20Pr%C3%ADncipe.png"data-filename="São Tomé and Príncipe.png"><a href="media/large/Portuguese%20Colonies/S%C3%A3o%20Tom%C3%A9%20and%20Pr%C3%ADncipe.png"><img
+                      src="media/small/Portuguese%20Colonies/S%C3%A3o%20Tom%C3%A9%20and%20Pr%C3%ADncipe.png"
+                      width="450"
+                      height="300"alt="São Tomé and Príncipe.png"/>
+              </a>
+          
+          </div>  </ul>
+    
+      <!--
+        Pagination
+      -->
+    
+      <!--
+        Zip file link
+      -->
+    
+      <!--
+        Optional footer
+      -->
+      <footer>
+        <p>/r/EXOmod</p>
+      </footer>
+    
+    </div>
+    <!-- Video loader -->
+    <div id="videos">
+    </div>
+
+    <!-- jQuery -->
+    <script src="public/jquery.min.js"></script>
+    <!-- VideoJS -->
+    <script src="public/videojs/video.min.js"></script>
+    <!-- LightGallery -->
+    <script src="public/lightgallery/js/lightgallery.js"></script>
+    <script src="public/lightslider/js/lightslider.min.js"></script>
+    <script src="public/lightgallery/js/lg-autoplay.js"></script>
+    <script src="public/lightgallery/js/lg-pager.js"></script>
+    <script src="public/lightgallery/js/lg-thumbnail.js"></script>
+    <script src="public/lightgallery/js/lg-video.js"></script>
+    <script src="public/lightgallery/js/lg-exif.min.js"></script>
+    <script src="public/justifiedgallery/jquery.justifiedGallery.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $("#media").lightGallery({
+          thumbWidth: 80,
+          controls: true,
+          loop : false,
+          download: true,
+          counter: true,
+          videojs: true,
+          exThumbImage: 'data-exthumbimage',
+        });
+
+        // Init justified gallery for albums
+        $("#albums").justifiedGallery({
+          margins: 10,
+          rowHeight: 300,
+          maxRowHeight: 325,
+        });
+
+        // Init justified gallery for photos
+        $("#media").justifiedGallery({
+          selector: '.albumList',
+          waitThumbnailsLoad: false,
+          margins: 10,
+          rowHeight: 250,
+          maxRowHeight: 275,
+        });
+      });
+    </script>
+
+
+
+  </body>
+
+</html>
