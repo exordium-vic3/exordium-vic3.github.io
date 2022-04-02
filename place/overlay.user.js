@@ -6,8 +6,8 @@
 // @author       oralekin from osu! /r/osuplace
 // @match        https://hot-potato.reddit.com/embed*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=reddit.com
-// @updateURL    https://exordium.breadcraft.me/place/overlay.js
-// @downloadURL  https://exordium.breadcraft.me/place/overlay.js
+// @updateURL    https://exordium.breadcraft.me/place/overlay.user.js
+// @downloadURL  https://exordium.breadcraft.me/place/overlay.user.js
 // @grant        none
 // ==/UserScript==
 if (window.top !== window.self) {
