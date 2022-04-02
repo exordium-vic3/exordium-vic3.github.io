@@ -16,7 +16,7 @@ if (window.top !== window.self) {
         (function () {
             const i = document.createElement("img");
             i.src = "https://exordium.breadcraft.me/place/potential%20overlay.png?test";
-            i.style = "position: absolute;left: 0;top: 0;image-rendering: pixelated;width: 1000px;height: 1000px;";
+            i.style = "position: absolute;left: 0;top: 0;image-rendering: pixelated; image-rendering: -moz-crisp-edges;width: 1000pxheight: 1000px;";
             console.log(i);
             return i;
         })())
