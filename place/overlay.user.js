@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FUCK NFTS Overlay
 // @namespace    http://tampermonkey.net/
-// @version      2.2
+// @version      2.3
 // @description  Keep the canvas beautiful!
 // @author       oralekin from osu! /r/osuplace
 // @match        https://hot-potato.reddit.com/embed*
