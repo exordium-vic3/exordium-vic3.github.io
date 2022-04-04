@@ -15,7 +15,7 @@ if (window.top !== window.self) {
             document.getElementsByTagName("mona-lisa-embed")[0].shadowRoot.children[0].getElementsByTagName("mona-lisa-canvas")[0].shadowRoot.children[0].appendChild(
         (function () {
             const i = document.createElement("img");
-            i.src = "https://exordium.breadcraft.me/place/v9-overlay.png";
+            i.src = "https://cdn.discordapp.com/attachments/959448738160607252/960632122144604290/okiguess.png";
             i.style = "position: absolute;left: 0;top: 0;image-rendering: pixelated; image-rendering: -moz-crisp-edges;width: 2000px;height: 2000px;";
             console.log(i);
             return i;
