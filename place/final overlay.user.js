@@ -6,8 +6,8 @@
 // @author       Mabi19
 // @match        https://hot-potato.reddit.com/embed*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=reddit.com
-// @updateURL    https://exordium.breadcraft.me/place/overlay.user.js
-// @downloadURL  https://exordium.breadcraft.me/place/overlay.user.js
+// @updateURL    https://exordium.breadcraft.me/place/final%20overlay.user.js
+// @downloadURL  https://exordium.breadcraft.me/place/final%20overlay.user.js
 // @grant        none
 // ==/UserScript==
 if (window.top !== window.self) {
