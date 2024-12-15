@@ -1,9 +1,10 @@
 import os
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 def resize_images(folder_path, target_height=960):
     """
-    Resizes all PNG images in the folder to have a height of target_height, keeping aspect ratio.
+    Resizes all PNG images in the folder using a supersampling method similar to Paint.NET.
+    Enlarges the image, applies Gaussian blur, and then downsamples using bicubic interpolation.
     Returns a list of tuples: (original name without .png, resized image path) sorted by file name.
     """
     image_paths = [
@@ -17,10 +18,30 @@ def resize_images(folder_path, target_height=960):
     for img_path in image_paths:
         original_name = os.path.splitext(os.path.basename(img_path))[0]
         img = Image.open(img_path)
+
+        # Check if the image has transparency
+        if img.mode in ("RGBA", "LA") or (img.mode == "P" and "transparency" in img.info):
+            # Create a solid background for the image
+            solid_bg = Image.new("RGBA", img.size, (225, 225, 225, 255))  # White background
+            img = img.convert("RGBA")  # Ensure image has an alpha channel
+            solid_bg.paste(img, (0, 0), img)
+            img = solid_bg
+
         # Calculate new width to maintain aspect ratio
         aspect_ratio = img.width / img.height
         new_width = int(target_height * aspect_ratio)
-        img_resized = img.resize((new_width, target_height), Image.BICUBIC)
+
+        # Step 1: Upscale the image by 2x
+        upscale_width = new_width * 2
+        upscale_height = target_height * 2
+        img_upscaled = img.resize((upscale_width, upscale_height), Image.Resampling.BICUBIC)
+
+        # Step 2: Apply Gaussian blur to reduce aliasing
+        img_upscaled = img_upscaled.convert("RGB")
+        img_blurred = img_upscaled.filter(ImageFilter.GaussianBlur(0.5))
+
+        # Step 3: Downscale the image to the target size
+        img_resized = img_blurred.resize((new_width, target_height), Image.Resampling.BICUBIC)
 
         # Save the resized image temporarily
         temp_path = os.path.join(folder_path, "resized_" + os.path.basename(img_path))
@@ -67,13 +88,8 @@ def create_collage(image_data, output_path="collage.png", margin=10, background_
             text_width = draw.textlength(name, font=font)
             text_x = x_offset + (img.width - text_width) // 2  # Center horizontally
             draw.text((text_x, text_y_offset), name, fill="black", font=font)
-
-            # Create a solid background for the image
-            solid_bg = Image.new("RGBA", img.size, background_color)
-            solid_bg.paste(img, (0, 0), img)
-
             # Paste the image with solid background below the text
-            collage.paste(solid_bg, (x_offset, y_offset + font_size + margin // 2))
+            collage.paste(img, (x_offset, y_offset + font_size + margin // 2))
             x_offset += img.width + margin
         y_offset += row_height + font_size + margin  # Adjust for text and margin
 
