@@ -20,7 +20,7 @@ def resize_images(folder_path, target_height=960):
         # Calculate new width to maintain aspect ratio
         aspect_ratio = img.width / img.height
         new_width = int(target_height * aspect_ratio)
-        img_resized = img.resize((new_width, target_height), Image.Resampling.LANCZOS)
+        img_resized = img.resize((new_width, target_height), Image.BICUBIC)
 
         # Save the resized image temporarily
         temp_path = os.path.join(folder_path, "resized_" + os.path.basename(img_path))
@@ -68,8 +68,12 @@ def create_collage(image_data, output_path="collage.png", margin=10, background_
             text_x = x_offset + (img.width - text_width) // 2  # Center horizontally
             draw.text((text_x, text_y_offset), name, fill="black", font=font)
 
-            # Paste the image below the text
-            collage.paste(img, (x_offset, y_offset + font_size + margin // 2))
+            # Create a solid background for the image
+            solid_bg = Image.new("RGBA", img.size, background_color)
+            solid_bg.paste(img, (0, 0), img)
+
+            # Paste the image with solid background below the text
+            collage.paste(solid_bg, (x_offset, y_offset + font_size + margin // 2))
             x_offset += img.width + margin
         y_offset += row_height + font_size + margin  # Adjust for text and margin
 
